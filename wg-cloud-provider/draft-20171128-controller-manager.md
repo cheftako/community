@@ -25,25 +25,21 @@ replaces:
 
 ## Table of Contents
 
-   * [Remove Cloud Provider Code From Kubernetes Core](#remove-cloud-provider-code-from-kubernetes-core)
-      * [Table of Contents](#table-of-contents)
-      * [Summary](#summary)
-      * [Motivation](#motivation)
-         * [Goals](#goals)
-         * [Intermediary Goals](#intermediary-goals)
-         * [Non-Goals](#non-goals)
-      * [Proposal](#proposal)
-         * [Controller Manager Changes](#controller-manager-changes)
-         * [Kubelet Changes](#kubelet-changes)
-         * [API Server Changes](#api-server-changes)
-         * [Volume Managent Changes](#volume-managent-changes)
-         * [Deployment Changes](#deployment-changes)
-         * [Implementation Details/Notes/Constraints [optional]](#implementation-detailsnotesconstraints-optional)
-         * [Security Considerations](#security-considerations)
-      * [Graduation Criteria](#graduation-criteria)
-      * [Implementation History](#implementation-history)
-      * [Drawbacks [optional]](#drawbacks-optional)
-      * [Alternatives [optional]](#alternatives-optional)
+- [Remove Cloud Provider Code From Kubernetes Core](#remove-cloud-provider-code-from-kubernetes-core)
+	- [Table of Contents](#table-of-contents)
+	- [Summary](#summary)
+	- [Motivation](#motivation)
+		- [Goals](#goals)
+		- [Intermediary Goals](#intermediary-goals)
+		- [Non-Goals](#non-goals)
+	- [Proposal](#proposal)
+		- [Controller Manager Changes](#controller-manager-changes)
+		- [Kubelet Changes](#kubelet-changes)
+		- [API Server Changes](#api-server-changes)
+		- [Volume Managent Changes](#volume-managent-changes)
+		- [Deployment Changes](#deployment-changes)
+	- [Alternatives](#alternatives)
+
 
 ## Summary
 
@@ -328,37 +324,7 @@ kubectl delete -f cloud-controller-manager.yml
 
 [test grid]: https://k8s-testgrid.appspot.com/
 
-### Implementation Details/Notes/Constraints [optional]
-
-### Security Considerations
-
-Make sure that you consider the impact of this feature from the point of view of
-Security.
-
-## Graduation Criteria
-
-How will we know that this has succeeded?
-Gathering user feedback is crucial for building high quality experiences and
-SIGs have the important responsibility of setting milestones for stability
-and completeness. Hopefully the content previously contained in
-[umbrella issues][] will be tracked in the `Graduation Criteria` section.
-
-[umbrella issues]: https://github.com/kubernetes/kubernetes/issues/42752
-
-## Implementation History
-
-Major milestones in the life cycle of a KEP should be tracked in
-`Implementation History`. Major milestones might include
-
-- the `Summary` and `Motivation` sections being merged signaling SIG acceptance
-- the `Proposal` section being merged signaling agreement on a proposed design
-- the date implementation started
-- the first Kubernetes release where an initial version of the KEP was available
-- the version of Kubernetes where the KEP graduated to general availability
-- when the KEP was retired or superseded
-
-
-## Alternatives [optional]
+## Alternatives
 
 One alternate to consider is the use of a side-car. The cloud-interface in tree
 could then be a [GRPC][] call out to that side-car. We could then leave the
